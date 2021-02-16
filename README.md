@@ -2,14 +2,6 @@
 ![Go Test](https://github.com/ValkyrieOps/check-open-file-descriptors/workflows/Go%20Test/badge.svg)
 ![goreleaser](https://github.com/ValkyrieOps/check-open-file-descriptors/workflows/goreleaser/badge.svg)
 
-## Releases with Github Actions
-
-To release a version of your project, simply tag the target sha with a semver release without a `v`
-prefix (ex. `1.0.0`). This will trigger the [GitHub action][5] workflow to [build and release][4]
-the plugin with goreleaser. Register the asset with [Bonsai][8] to share it with the community!
-
-***
-
 # sensu-ofd-check
 
 ## Table of Contents

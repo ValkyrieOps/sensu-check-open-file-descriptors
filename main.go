@@ -22,7 +22,7 @@ var (
         plugin = Config{
                 PluginConfig: sensu.PluginConfig{
                         Name:     "sensu-ofd-check",
-                        Short:    "The Sensu Go Event Open File Descriptors plugin",
+                        Short:    "The Sensu Go Open File Descriptors plugin",
                         Keyspace: "sensu.io/plugins/sensu-ofd-check/config",
                 },
         }

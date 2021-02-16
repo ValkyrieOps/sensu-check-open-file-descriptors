@@ -1,25 +1,6 @@
-[![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/nick.eisner@valkyrietrading.com/check-open-file-descriptors)
-![Go Test](https://github.com/nick.eisner@valkyrietrading.com/check-open-file-descriptors/workflows/Go%20Test/badge.svg)
-![goreleaser](https://github.com/nick.eisner@valkyrietrading.com/check-open-file-descriptors/workflows/goreleaser/badge.svg)
-
-# Check Plugin Template
-
-## Overview
-check-plugin-template is a template repository which wraps the [Sensu Plugin SDK][2].
-To use this project as a template, click the "Use this template" button from the main project page.
-Once the repository is created from this template, you can use the [Sensu Plugin Tool][9] to
-populate the templated fields with the proper values.
-
-## Functionality
-
-After successfully creating a project from this template, update the `Config` struct with any
-configuration options for the plugin, map those values as plugin options in the variable `options`,
-and customize the `checkArgs` and `executeCheck` functions in [main.go][7].
-
-When writing or updating a plugin's README from this template, review the Sensu Community
-[plugin README style guide][3] for content suggestions and guidance. Remove everything
-prior to `# sensu-ofd-check` from the generated README file, and add additional context about the
-plugin per the style guide.
+[![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/ValkyrieOps/check-open-file-descriptors)
+![Go Test](https://github.com/ValkyrieOps/check-open-file-descriptors/workflows/Go%20Test/badge.svg)
+![goreleaser](https://github.com/ValkyrieOps/check-open-file-descriptors/workflows/goreleaser/badge.svg)
 
 ## Releases with Github Actions
 
@@ -44,11 +25,34 @@ the plugin with goreleaser. Register the asset with [Bonsai][8] to share it with
 
 ## Overview
 
-The sensu-ofd-check is a [Sensu Check][6] that ...
+The sensu-ofd-check is a [Sensu Check][6] that calcualtes total number of open file descriptors per specified linux user
 
 ## Files
 
+bin/check-open-file-descriptors
+
 ## Usage examples
+
+```
+The Sensu Go Open File Descriptors plugin
+
+Usage:
+  sensu-ofd-check [flags]
+  sensu-ofd-check [command]
+
+Available Commands:
+  help        Help about any command
+  version     Print the version number of this plugin
+
+Flags:
+  -c, --crit int      Critical threshold - count of file descriptors required for critical state
+  -h, --help          help for sensu-ofd-check
+  -u, --user string   User to query for open file descriptors (default "sensu")
+  -w, --warn int      Warning threshold - count of file descriptors required for warning state
+
+Use "sensu-ofd-check [command] --help" for more information about a command.
+
+```
 
 ## Configuration
 
@@ -59,10 +63,10 @@ consider doing so! If you're using sensuctl 5.13 with Sensu Backend 5.13 or late
 following command to add the asset:
 
 ```
-sensuctl asset add nick.eisner@valkyrietrading.com/check-open-file-descriptors
+sensuctl asset add ValkyrieOps/check-open-file-descriptors
 ```
 
-If you're using an earlier version of sensuctl, you can find the asset on the [Bonsai Asset Index][https://bonsai.sensu.io/assets/nick.eisner@valkyrietrading.com/check-open-file-descriptors].
+If you're using an earlier version of sensuctl, you can find the asset on the [Bonsai Asset Index][https://bonsai.sensu.io/assets/ValkyrieOps/check-open-file-descriptors].
 
 ### Check definition
 
@@ -74,11 +78,11 @@ metadata:
   name: check-open-file-descriptors
   namespace: default
 spec:
-  command: check-open-file-descriptors --example example_arg
+  command: check-open-file-descriptors -u 'sensu' -w 100 -c 200
   subscriptions:
   - system
   runtime_assets:
-  - nick.eisner@valkyrietrading.com/check-open-file-descriptors
+  - ValkyrieOps/check-open-file-descriptors
 ```
 
 ## Installation from source
